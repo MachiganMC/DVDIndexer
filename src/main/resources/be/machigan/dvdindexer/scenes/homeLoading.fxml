@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<VBox
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="be.machigan.dvdindexer.controllers.HomeLoadingController"
+        alignment="CENTER"
+>
+    <Label text="Chargement en cours ...">
+        <font>
+            <Font size="35"/>
+        </font>
+    </Label>
+    <Label text="Merci de ne pas fermer l'application pour éviter une corruptions des données">
+        <padding>
+            <Insets bottom="20"/>
+        </padding>
+    </Label>
+    <ImageView fitHeight="50" fitWidth="50">
+        <Image url="@../img/loading.gif"/>
+    </ImageView>
+    <Label fx:id="currentAction"/>
+    <ProgressBar fx:id="progressBar" minWidth="300"/>
+</VBox>

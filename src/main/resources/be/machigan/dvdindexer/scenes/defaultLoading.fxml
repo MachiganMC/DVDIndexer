@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<VBox
+        alignment="CENTER"
+
+>
+    <Label text="Merci de ne pas fermer l'application">
+        <font>
+            <Font size="25"/>
+        </font>
+        <padding>
+            <Insets bottom="25" left="10" right="10"/>
+        </padding>
+    </Label>
+    <StackPane>
+        <padding>
+            <Insets bottom="10"/>
+        </padding>
+        <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@../img/loading.gif"/>
+        </ImageView>
+    </StackPane>
+
+
+</VBox>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="be.machigan.dvdindexer.controllers.AddFolderController"
+            prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <GridPane
+                    hgap="10"
+                    vgap="10"
+                    alignment="CENTER"
+            >
+                <Label text="Chemin :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="pathLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Nom du dossier :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField
+                        fx:id="nameTextField"
+                        promptText="ex: films de l'été"
+                        GridPane.rowIndex="1"
+                        GridPane.columnIndex="1"
+                        onKeyReleased="#onSetName"
+                />
+            </GridPane>
+            <VBox fx:id="resultZone" alignment="CENTER" />
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <padding>
+                <Insets top="10" bottom="10" right="10"/>
+            </padding>
+            <Button
+                    fx:id="validateButton"
+                    text="Valider"
+                    disable="true"
+                    onAction="#onValidate"
+            />
+            <Button text="Annuler" onAction="#onCloseButton" fx:id="cancelButton"/>
+        </HBox>
+    </bottom>
+</BorderPane>

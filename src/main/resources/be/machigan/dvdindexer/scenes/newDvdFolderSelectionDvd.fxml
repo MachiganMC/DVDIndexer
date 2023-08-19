@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="be.machigan.dvdindexer.controllers.NewDvdFolderSelectionDvdController"
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../css/newDvdFolderSelectionDvd.css"
+>
+    <center>
+        <VBox alignment="CENTER">
+            <Label text="Éditer les dvd valides :" underline="true" style="-fx-font-weight: bold">
+                <font>
+                    <Font size="30"/>
+                </font>
+            </Label>
+            <TabPane VBox.vgrow="ALWAYS" fx:id="folderTab"/>
+            <Label text="Rechercher un pattern dans le nom du dossier :" underline="true">
+                <font>
+                    <Font size="25"/>
+                </font>
+            </Label>
+            <GridPane alignment="CENTER" vgap="10" hgap="10">
+                <Label text="Pattern nom :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField
+                        promptText="ex: ^(.+)\s-\s.*$"
+                        fx:id="regexName"
+                        GridPane.columnIndex="1"
+                        GridPane.rowIndex="0"
+                        minWidth="500"
+                />
+                <Button
+                        text="Appliquer"
+                        fx:id="regexNameButton"
+                        GridPane.columnIndex="2"
+                        GridPane.rowIndex="0"
+                        onAction="#onRegexNameButton"
+                />
+                <Button
+                        text="Vider les entrées"
+                        onAction="#onClearNameButton"
+                        GridPane.columnIndex="3"
+                        GridPane.rowIndex="0"
+                />
+                <Button
+                        text="Suggérer"
+                        onAction="#onSuggestName"
+                        GridPane.columnIndex="4"
+                        GridPane.rowIndex="0"
+                />
+                <Label text="Pattern réalisateur :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField
+                        promptText="ex: - (.+)$"
+                        fx:id="regexDirector"
+                        GridPane.columnIndex="1"
+                        GridPane.rowIndex="1"
+                        minWidth="500"
+                />
+                <Button
+                        text="Appliquer"
+                        fx:id="regexDirectorButton"
+                        GridPane.columnIndex="2"
+                        GridPane.rowIndex="1"
+                        onAction="#onRegexDirectorButton"
+                />
+                <Button
+                        text="Vider les entrées"
+                        onAction="#onClearDirectorButton"
+                        GridPane.columnIndex="3"
+                        GridPane.rowIndex="1"
+                        fx:id="clearDirectors"
+                />
+                <Button
+                        text="Suggérer"
+                        onAction="#onSuggestDirector"
+                        GridPane.columnIndex="4"
+                        GridPane.rowIndex="1"
+                        fx:id="suggestDirectorRegex"
+                />
+            </GridPane>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <padding>
+                <Insets top="10" bottom="10" right="10"/>
+            </padding>
+            <Button text="Valider" onAction="#onValidateButton" style="-fx-font-size: 17"/>
+            <Button text="Annuler" onAction="#onCancelButton" style="-fx-font-size: 17"/>
+        </HBox>
+    </bottom>
+</BorderPane>

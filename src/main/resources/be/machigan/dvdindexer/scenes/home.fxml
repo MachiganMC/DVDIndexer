@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="be.machigan.dvdindexer.controllers.HomeController"
+        stylesheets="@../css/home.css"
+        style="-fx-background-color: #dfdede"
+>
+    <left>
+        <VBox>
+            <Label text="Liste dossiers :" underline="true" style="-fx-font-weight: bold" >
+                <font>
+                    <Font size="30" />
+                </font>
+            </Label>
+            <TableView
+                    fx:id="diskListZone"
+                    style="-fx-border-color: #b9b9b9; -fx-border-width: 0 1px 0 0; -fx-font-size: 15px"
+                    VBox.vgrow="ALWAYS"
+            >
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+                <placeholder>
+                    <Label text="Aucun dossier de dvd enregistré pour l'instant"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="TOP_CENTER">
+            <HBox alignment="CENTER">
+                <TextField
+                        fx:id="searchBar"
+                        promptText="Rechercher un film dans tous les dossiers"
+                        minWidth="500"
+                        onKeyReleased="#onSearchInAllFolder"
+                >
+                    <font>
+                        <Font size="20"/>
+                    </font>
+                </TextField>
+                <Button text="Annuler" onAction="#onClickClearSearchButton">
+                    <font>
+                        <Font size="20"/>
+                    </font>
+                </Button>
+            </HBox>
+            <TabPane VBox.vgrow="ALWAYS" fx:id="mediaTab">
+                <Tab text="Films" closable="false" styleClass="dvd-type-tab">
+                    <VBox fx:id="movieListZone">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                    </VBox>
+                </Tab>
+                <Tab text="Séries" closable="false" styleClass="dvd-type-tab">
+                    <VBox fx:id="seriesListZone"/>
+                </Tab>
+            </TabPane>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox
+                alignment="CENTER"
+                style="-fx-border-color: #b9b9b9; -fx-border-width: 1px 0 0 0"
+                spacing="10"
+        >
+            <padding>
+                <Insets top="20" bottom="20"/>
+            </padding>
+            <Button text="Ajouter un dossier de DVD" onAction="#onClickAddFolderButton"/>
+            <Button text="Recharger les dossiers" onAction="#onClickReloadButton"/>
+        </HBox>
+    </bottom>
+</BorderPane>
