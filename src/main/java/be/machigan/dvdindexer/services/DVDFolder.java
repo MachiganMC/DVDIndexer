@@ -56,6 +56,7 @@ public class DVDFolder {
         }
         new Thread(() -> {
             AppData.getInstance().getDvdDisks().forEach(DVDFolder::setIfAvailable);
+            AppData.getInstance().getDvdDisks().forEach(DVDFolder::sortMedia);
             Platform.runLater(() -> HomeController.getInstance().initialize());
             DefaultLoadingPopup.getInstance().setTaskFinished(true);
             Platform.runLater(() -> DefaultLoadingPopup.getInstance().getPopup().close());
